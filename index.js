@@ -1,16 +1,56 @@
 import { fifaData } from './fifa.js';
-console.log(fifaData);
+// console.log(fifaData);
 
 console.log('its working');
 // ⚽️ M  V P ⚽️ //
 
-/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
+/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data */
 
-(a) Home Team name for 2014 world cup final
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+//(a) Home Team name for 2014 world cup final
+
+fifaData.forEach( function(game) {
+    if (game.Year === 2014 && game.Stage === 'Final') {
+        console.log( `(a) Home Team name for 2014 world cup final: ${game["Home Team Name"]}` )
+    }
+});
+
+//(b) Away Team name for 2014 world cup final
+
+fifaData.forEach( function(game) {
+    if (game.Year === 2014 && game.Stage === 'Final') {
+        console.log( `(b) Away Team name for 2014 world cup final: ${game["Away Team Name"]}` )
+    }
+});
+
+//(c) Home Team goals for 2014 world cup final
+
+fifaData.forEach( function(game) {
+    if (game.Year === 2014 && game.Stage === 'Final') {
+        console.log( `(c) Home Team goals for 2014 world cup final ${game["Home Team Goals"]}` )
+    }
+});
+
+//(d) Away Team goals for 2014 world cup final
+
+fifaData.forEach( function(game) {
+    if (game.Year === 2014 && game.Stage === 'Final') {
+        console.log( `(d) Away Team goals for 2014 world cup final ${game["Away Team Goals"]}` )
+    }
+});
+
+//(e) Winner of 2014 world cup final
+
+fifaData.forEach( function(game) {
+    if (game.Year === 2014 && game.Stage === 'Final') {
+        if ( game['Home Team Goals'] > game['Away Team Goals'] ) {
+            console.log( `(e) Winner of 2014 world cup final: ${game["Home Team Name"]}` )
+        } else if ( game['Home Team Goals'] < game['Away Team Goals'] ) {
+            console.log( `(e) Winner of 2014 world cup final: ${game["Away Team Name"]}` )
+        } else {
+            console.log( `(e) Winner of 2014 world cup final: Tie`)
+        }
+    }
+});
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
