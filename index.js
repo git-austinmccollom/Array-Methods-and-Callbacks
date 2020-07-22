@@ -125,11 +125,28 @@ console.log(getWinnersByYear(getWinners, getYears));
 returns the the average number of home team goals and away team goals scored per match (Hint:
  use .reduce and do this in 2 steps) */
 console.log('--------Task 6---------');
-// function getAverageGoals(data) {
-    
-// };
+function getAverageGoals(data) {
+    //get total home goals
+    const totalHomeGoals = data.reduce(function(accumulator, game){
+        return accumulator += game['Home Team Goals']
+    }, 0)
+    //get average home goals
+    const averageHomeGoals = (totalHomeGoals / data.length);
+    console.log(`Average number of goals scored per match by the home team: ${averageHomeGoals}`);
+    //get total away goals
+    const totalAwayGoals = data.reduce(function(accumulator, game){
+        return accumulator += game['Away Team Goals']
+    }, 0)
+    //get average away goals
+    const averageAwayGoals = (totalAwayGoals / data.length);
+    console.log(`Average number of goals scored per match by the away team: ${averageAwayGoals}`);
+    return {
+        'Average Home Goals': averageHomeGoals,
+        'Average Away Goals': averageAwayGoals
+    }
+};
 
-// console.log(getAverageGoals(fifaData));
+getAverageGoals(fifaData);
 
 /// STRETCH 🥅 //
 
